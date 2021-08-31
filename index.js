@@ -2,7 +2,10 @@ const { graphql, buildSchema } = require('graphql')
 
 const schema = buildSchema(`
     type Query {
-        welcome: String
+        id: ID,
+        title: String,
+        duration: Int,
+        watched: Boolean
     }
 
     type Schema {
@@ -11,12 +14,18 @@ const schema = buildSchema(`
 `)
 
 const resolver = {
-    welcome: () => "Hello, Thato"
+    id: () => '101',
+    title: () => "Avengers Assemble",
+    duration: () => 120,
+    watched: () => true
 }
 
 const query = `
     query firstQuery {
-        welcome
+        id
+        title
+        duration
+        watched
     }
 `
 
